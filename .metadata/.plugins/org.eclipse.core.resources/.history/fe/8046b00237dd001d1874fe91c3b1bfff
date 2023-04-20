@@ -1,0 +1,22 @@
+package com.viet.services.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.viet.dto.schedulesDTO;
+import com.viet.repository.courseRepository;
+import com.viet.repository.schedulesRepository;
+import com.viet.services.IschedulesService;
+import com.viet.entity.scheduleEntity;
+
+public class schedulesService implements IschedulesService {
+	
+	@Autowired 
+	private schedulesRepository sR;
+	@Override
+	public schedulesDTO save(schedulesDTO schedulesdto) {
+		// TODO Auto-generated method stub
+		scheduleEntity sE = new scheduleEntity();
+		return null;
+	}
+
+}

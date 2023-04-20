@@ -1,0 +1,5 @@
+package com.viet.api.input;
+
+public class NewInput {
+
+}

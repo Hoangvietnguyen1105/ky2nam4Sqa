@@ -1,0 +1,36 @@
+package com.viet.services.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.viet.converter.courseConverter;
+import com.viet.converter.newConverter;
+import com.viet.dto.NewDTO;
+import com.viet.dto.courseDTO;
+import com.viet.repository.courseRepository;
+import com.viet.repository.coursesGroupRepository;
+import com.viet.services.IcourseService;
+import com.viet.services.coursesGroupService;
+import com.viet.entity.coursesGroupEntity;
+import com.viet.entity.courseEntity;
+@Service
+public class courseService implements IcourseService{
+	@Autowired 
+	private courseRepository cR;
+	@Autowired
+	private courseConverter cC;
+	
+	@Override
+	public courseDTO save(courseDTO coursedto) {
+		courseEntity cE = new courseEntity();
+		cE = cC.toEntity(coursedto);
+		cR.save(cE);
+		
+		return cC.toDTO(cE);
+	}
+	public courseDTO update(courseDTO coursedto) {
+		
+	}
+	
+	
+}

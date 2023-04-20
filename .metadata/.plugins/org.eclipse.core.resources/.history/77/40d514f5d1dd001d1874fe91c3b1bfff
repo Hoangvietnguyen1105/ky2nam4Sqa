@@ -1,0 +1,43 @@
+package com.viet.api;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.viet.dto.NewDTO;
+import com.viet.dto.courseDTO;
+import com.viet.dto.schedulesDTO;
+import com.viet.services.IcourseService;
+import com.viet.services.IschedulesService;
+import com.viet.services.coursesGroupService;
+import com.viet.services.impl.schedulesService;
+
+@RestController
+
+public class schedulesApi {
+
+		@Autowired
+		private IschedulesService schedulesService;
+        @PostMapping(value="/create-schedule")
+        public schedulesDTO create(@RequestBody schedulesDTO model) {
+        		
+                return schedulesService.save(model);
+        }
+        @PutMapping(value = "/update-schedule")
+        
+        public schedulesDTO update(@RequestBody schedulesDTO model) {
+        	 
+        	return schedulesService.update(model);
+        }
+        
+        @DeleteMapping(value = "/delete-schedule")
+        public String delete(@RequestBody schedulesDTO model) {
+        	schedulesService.delete(model.getId());
+        	return "xoá thành công";
+        }
+
+}

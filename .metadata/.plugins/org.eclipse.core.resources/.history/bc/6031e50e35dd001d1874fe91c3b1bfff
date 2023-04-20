@@ -1,0 +1,5 @@
+package com.viet.repository;
+
+public interface schedulesRepository {
+
+}

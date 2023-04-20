@@ -1,0 +1,10 @@
+package com.viet.services;
+
+import com.viet.dto.courseDTO;
+import com.viet.dto.schedulesDTO;
+
+public interface IschedulesService {
+	schedulesDTO	save(schedulesDTO	schedulesdto);
+//	courseDTO	update(courseDTO	coursedto);
+//	void delete(int id);
+}

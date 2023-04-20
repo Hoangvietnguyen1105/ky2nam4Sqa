@@ -1,0 +1,12 @@
+package com.viet.dto;
+
+import javax.persistence.Column;
+
+public class courseDTO {
+	private int id;
+	
+	private String coursesCode;
+	private String name;
+	private String creditHour;
+	private String classHour;
+}

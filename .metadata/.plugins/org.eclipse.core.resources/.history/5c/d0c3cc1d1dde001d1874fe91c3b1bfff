@@ -1,0 +1,54 @@
+package com.viet.services.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.viet.converter.scheduleConverter;
+import com.viet.dto.courseDTO;
+import com.viet.dto.schedulesDTO;
+import com.viet.repository.courseRepository;
+import com.viet.repository.schedulesRepository;
+import com.viet.services.IschedulesService;
+import com.viet.entity.courseEntity;
+import com.viet.entity.scheduleEntity;
+@Service
+public class schedulesService implements IschedulesService {
+	
+	@Autowired 
+	private schedulesRepository sR;
+	@Autowired
+	private scheduleConverter sC;
+	@Override
+	public schedulesDTO save(schedulesDTO schedulesdto) {
+		scheduleEntity check = (scheduleEntity) sR.findByDayAndRoom(schedulesdto.getDay(), schedulesdto.getRoom());
+		// TODO Auto-generated method stub
+//		scheduleEntity sE = new scheduleEntity();
+//		sE = sC.toEntity(schedulesdto);
+//		sR.save(sE);
+//		return sC.toDTO(sE);
+		return null;
+	}
+	public schedulesDTO update(schedulesDTO dto) {
+		scheduleEntity sE = sR.findOne(dto.getId());
+		scheduleEntity sE1= sC.toEntity(dto, sE);
+		sR.save(sE1);
+		return sC.toDTO(sE1);
+	}
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		sR.delete(id);
+		
+	}
+	@Override
+	public List<scheduleEntity> getAll(int x) {
+		// TODO Auto-generated method stub
+		return sR.findBycoursesGroupId(x);
+	}
+	
+	
+	
+
+}

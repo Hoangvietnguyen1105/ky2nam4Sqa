@@ -1,0 +1,8 @@
+package com.viet.services;
+
+import com.viet.dto.NewDTO;
+import com.viet.dto.courseDTO;
+
+public interface IcourseService {
+	NewDTO	save(courseDTO	coursedto);
+}

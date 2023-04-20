@@ -1,0 +1,20 @@
+package com.viet.dto;
+
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.viet.entity.courseEntity;
+
+public class NewDTO {
+
+	
+	
+	private int groupCode;
+	private int labCode;
+	private int id;
+	
+    private int course_id;
+    
+   
+}
